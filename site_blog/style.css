@@ -1,0 +1,303 @@
+/* --------------- reset.css --------------- */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i,  dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;                               /* обнуляем отступы и убираем бордюры */
+	vertical-align: baseline;          /* приводим все к одной базовой линии */
+	background: transparent;      /* чтобы не проскакивали левые фоны, установленные по умолчанию */
+	font-size: 100%;                     /* размер шрифта всем одинаковый */
+}
+a {                                      	     /* ссылка не в общем списке чтобы не сбрасывать outline по умолчанию */
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	outline:none;
+}
+table {						/* устраняем отступы между ячейками таблицы */
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td, td img {
+	vertical-align: top;			/* возвращаем привычное вертикальное выравнивание */
+}
+input, select, button, textarea {
+	margin: 0; 				/* убираем отступы по умолчанию для элементов форм (в частности для checkbox и radio) */
+	font-size: 100%; 			/* делаем размер шрифтов везде одинаковым */
+	outline: none;
+}
+input[type="text"], input[type="password"], textarea {
+	padding: 0; 				/* убираем внутренние отступы для текстовых полей */
+}
+input[type="checkbox"] { 		/* вертикальное выравнивание чекбоксов и радиобатонов относительно меток */
+	vertical-align: bottom;
+}
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block;
+}
+nav ul {
+	 list-style:none;
+}
+/* --------------- /reset.css --------------- */
+
+/* --------------- базовые настройки ---------*/
+html {
+	min-height:100%; /* всегда показываем вертикальную полосу прокрутки  */
+}
+body {
+	color: #606060;
+	text-align: left;
+	font-size: 1em; /* используем безопасные шрифтовые CSS стеки */
+	min-height:100%;
+  font-family: 'Open Sans', sans-serif;
+}
+a, a:visited { /* порядок правил для ссылок имеет значение */
+	color: #339933;
+	text-decoration: underline;
+}
+a:hover {
+	color: #339933;
+	text-decoration:none;
+}
+a:focus, a:active {
+	color: #339933;
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight:normal;
+}
+img{
+
+	max-width:100%;
+}
+.clr{
+	clear:both;
+}
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+/* --------------- /базовые настройки ---------*/
+header{
+  background: #292929; overflow: hidden;
+}
+  .center-block-main{
+    margin: 0 auto;
+    max-width: 980px;
+  }
+  .logo{
+    float: left; margin-top: 45px;
+  }
+  .manu{
+    float: right;
+  }
+  .manu li{
+    float: left;
+    font-weight: 600;
+  }
+  .manu li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 50px 35px;
+    display: block;
+    border-bottom: 3px solid #1e1e1e;
+  }
+  .manu li a:hover{
+    color: #58c93a;
+    border-left: 1px solid #1e1e1e;
+    border-right: 1px solid #1e1e1e;
+    border-bottom: 3px solid #58c93a;
+  }
+
+.content{
+	border-right: 1px solid #e1e0e0;
+	border-left: 1px solid #e1e0e0;
+}
+
+main{
+  float: left;
+  width: 63%;
+	margin-top: 70px;
+}
+	article{
+		margin-bottom: 70px;
+	}
+	article header{
+		font-size: 0; background: none; margin-bottom: 10px; position: relative;
+	}
+	article header:hover .publish{
+		bottom: -20px;
+	}
+	.publish{
+		font-size: 13px;
+		background: rgba(0, 0, 0, 0.6);
+		color: #fff;
+		position: absolute;
+		bottom: -60px;
+		right: 0;
+		box-sizing: border-box;
+		padding: 10px 20px;
+		width: 100%;
+		-webkit-transition: bottom 0.1s linear;
+		-moz-transition: bottom 0.1s linear;
+		-o-transition: bottom 0.1s linear;
+		transition: bottom 0.1s linear;
+
+	}
+	article h2{
+		font-size: 1.75em;
+		text-transform: uppercase;
+		font-weight: 600;
+		line-height: 1.1;
+		margin: 0 0 40px 20px;
+		color: #4f4e4e;
+	}
+	article p{
+		margin: 0 0 20px 20px;
+		line-height: 1.3;
+	}
+	a.more{
+		border: 2px solid #c2c2c2;
+		color: #c2c2c2;
+		padding: 7px 20px;
+		display: inline-block;
+		border-radius: 20px;
+		text-decoration: none;
+		-webkit-transition: all 0.1s linear;
+		-moz-transition: all 0.1s linear;
+		-o-transition: all 0.1s linear;
+		transition: all 0.1s linear;
+	}
+	a:hover.more{
+		color: #339933;
+		border-color: #339933;
+	}
+aside{
+  float: right; width: 28.6%;
+	margin-top: 70px;
+}
+		.widget{
+		margin-bottom: 50px;
+		}
+		.widget h2{
+			text-transform: uppercase;
+			color: #6c6969;
+			margin-bottom: 20px;
+			background: #f6f1f1;
+			border-left: 3px solid #58c93a;
+			padding: 10px 20px 10px 20px;
+			font-weight: 600;
+		}
+		.search{
+			color: #b9b9b9;
+			font-size: 0.75em;
+			width: 100%;
+			border: 1px solid #e1e0e0;
+			border-right: none;
+			padding: 15px 20px;
+		}
+		.widget nav{
+			margin: 0 0 0 20px;
+		}
+		.subscribe{
+			position: relative;
+			width: 100%;
+			height: 48px;
+		}
+		.subscribe-input{
+			color: #b9b9b9;
+			font-size: 0.75em;
+			width: 100%;
+			border: 1px solid #e1e0e0;
+			padding: 15px 50px 15px 20px;
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-right: none;
+		}
+
+		.subscribe-img{
+			position: absolute; right: 20px; top: 12px;
+		}
+		.pager{
+			border-top: 1px solid #e1e0e0;
+			font-size: 1.125em;
+			text-transform: uppercase;
+			font-weight: 600;
+			padding: 30px;
+		}
+		.pager a{
+			color: #818181;
+			text-decoration: none;
+		}
+		.pager a:hover{
+			text-decoration: underline;
+		}
+		.previous-link{
+			float: left;
+		}
+		.next-link{
+			float: right;
+		}
+footer{
+	background: #f8f8f8;
+	border-top: 1px solid #e1e0e0;
+	text-align: center;
+	font-size: 0.8125em;
+	padding: 50px 0;
+}
+	footer img{
+		margin-bottom: : 20px;
+	}
+
+@media screen and (max-width:768px) {
+	.logo{
+		margin-top: 20px;
+	}
+	.manu li a{
+		padding: 25px 35px;
+	}
+	main{
+	  float: none;
+	  width: 100%;
+		margin-top: 30px;
+	}
+	article header img{
+		width: 100%;
+	}
+	aside{
+	  float: none; width: 100%;
+		margin-top: 70px;
+	}
+}
+
+@media screen and (max-width:620px){
+	.logo{
+		float: none;
+		margin: 10px auto;
+		display: block;
+	}
+	.manu{
+		float: none;
+		width: 100%;
+	}
+	.manu li a{
+		padding: 10px 35px;
+		border-bottom: 3px solid #292929;
+	}
+}
