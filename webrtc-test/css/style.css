@@ -1,0 +1,59 @@
+body{
+    background-color: lightgray;
+}
+
+.btns-number{
+    /*max-width: 294px;*/
+}
+
+.btns-number .btn{
+    width: 70px;
+    background-color: #fff;
+}
+
+.btns-number .btn:hover{
+    background-color: #343a40;
+}
+
+.btns-control .btn{
+    width: 144px;
+}
+
+.screen-phone{
+    max-width: 294px;
+    height: 48px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+.screen-phone:disabled{
+    background-color: #fff;
+}
+
+.btns-number .clear-all{
+    width: 218px;
+}
+
+@media (max-width:767px){
+    .phone-wrap{
+        text-align: center;
+    }
+}
+
+@media (max-width:400px){
+    .btns-number .btn{
+        width: 65px;
+    }
+
+    .btns-number .clear-all{
+        width: 204px;
+    }
+
+    .screen-phone{
+        max-width: 274px;
+    }
+
+    .btns-control .btn{
+        width: 134px;
+    }
+}
