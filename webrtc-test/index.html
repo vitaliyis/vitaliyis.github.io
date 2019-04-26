@@ -21,47 +21,44 @@
                 <h1>Phone</h1>
             </div>
             
-            <div class="btns-number">
-                <div class="form-group">
-                    <input type="text" disabled class="form-control screen-phone">
-                </div>
+            <div class="btns-number mt-3">
                 <div>
-                    <button type="button" class="btn btn-lg btn-outline-dark">1</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">2</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">3</button>
+                    <button type="button" id="1" class="btn btn-lg btn-outline-dark">1</button>
+                    <button type="button" id="2" class="btn btn-lg btn-outline-dark">2</button>
+                    <button type="button" id="3" class="btn btn-lg btn-outline-dark">3</button>
                     
                 </div>
                 <div class="mt-1">
-                    <button type="button" class="btn btn-lg btn-outline-dark">4</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">5</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">6</button>
+                    <button type="button" id="4" class="btn btn-lg btn-outline-dark">4</button>
+                    <button type="button" id="5" class="btn btn-lg btn-outline-dark">5</button>
+                    <button type="button" id="6" class="btn btn-lg btn-outline-dark">6</button>
                 </div>
                 <div class="mt-1">
-                    <button type="button" class="btn btn-lg btn-outline-dark">7</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">8</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">9</button>
+                    <button type="button" id="7" class="btn btn-lg btn-outline-dark">7</button>
+                    <button type="button" id="8" class="btn btn-lg btn-outline-dark">8</button>
+                    <button type="button" id="9" class="btn btn-lg btn-outline-dark">9</button>
                 </div>
                 <div class="mt-1">
-                    <button type="button" class="btn btn-lg btn-outline-dark">*</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">0</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark">#</button>
-                </div>
-                <div class="mt-1">
-                    <button type="button" class="btn btn-lg btn-outline-dark">+</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark clear-all">Clear all</button>
-                    <button type="button" class="btn btn-lg btn-outline-dark clear-number">&#x2190;</button>
+                    <button type="button" id="*" class="btn btn-lg btn-outline-dark">*</button>
+                    <button type="button" id="0" class="btn btn-lg btn-outline-dark">0</button>
+                    <button type="button" id="#" class="btn btn-lg btn-outline-dark">#</button>
                 </div>
             </div>
             <div class="btns-control mt-3 mb-3">
-                <button type="button" class="btn btn-lg btn-success btn-call">Call</button>
-                <button type="button" class="btn btn-lg btn-danger">Hang up</button>
+                <button type="button" id="callbtn" class="btn btn-lg btn-success btn-call">Call</button>
+                <button type="button" id="hangupbtn" class="btn btn-lg btn-danger">Hang up</button>
             </div>
         </div>
 
 
     </div>
 
-    <script src="js/script.js"></script>
 
+    <script src="js/script.js"></script>
+    <script src="js/phone.js"></script>
+    <script src="js/sip-0.13.8.js"></script>
+    <script src="js/main.js"></script>
+
+    <video id="remoteVideoElement" muted="muted"></video>
 </body>
 </html>
