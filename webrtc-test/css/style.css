@@ -18,6 +18,17 @@ body{
 .btns-number .btn{
     width: 94px;
     background-color: #fff;
+    text-align: left;
+}
+
+.btns-number .btn[disabled], .btn-call[disabled], .btn-hangup[disabled]{
+    opacity: .3;
+    transition: opacity .3s ease-in-out;
+}
+
+.btns-number .btn, .btn-call, .btn-hangup{
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
 }
 
 .btns-number .btn:hover{
@@ -26,6 +37,16 @@ body{
 
 .btns-control .btn{
     width: 144px;
+}
+
+.dial-number{
+    font-size: 24px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.dial-litter{
+    font-size: 12px;
 }
 
 @media (max-width:767px){
@@ -49,5 +70,9 @@ body{
 
     .logo{
         max-width: 260px;
+    }
+
+    .dial-number{
+        margin-left: 0;
     }
 }

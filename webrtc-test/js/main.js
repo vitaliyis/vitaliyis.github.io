@@ -1,4 +1,10 @@
-var remoteVideoElement = document.getElementById('remoteVideoElement');
+'use strict';
+const audio = document.querySelector('audio');
+
+const constraints = window.constraints = {
+    audio: true,
+    video: false
+};
 
 // let config = {
 //     uri: '702@127.0.0.1',
@@ -17,7 +23,9 @@ var remoteVideoElement = document.getElementById('remoteVideoElement');
 //     register: true,
 //     usePreloadedRoute: true,
 //     hackWssInTransport: true,
-//     stunServers: "stun:stun.l.google.com:19302"
+//     stunServers: "stun:stun.l.google.com:19302",
+//     autostart: true,
+//     audioId: "remote-audio"
 //
 // };
 
@@ -38,9 +46,32 @@ let config = {
     register: true,
     usePreloadedRoute: true,
     hackWssInTransport: true,
-    stunServers: "stun:stun.l.google.com:19302"
+    stunServers: "stun:stun.l.google.com:19302",
+    audioId: "remote-audio"
 
 };
+
+// let config = {
+//     uri: '3000@fusionpbx.comapptech.net',
+//     transportOptions: {
+//         wsServers: ['wss://fusionpbx.comapptech.net:7443'],
+//         traceSip: true,
+//         usePreloadedRoute: true,
+//     },
+//     realm: "fusionpbx.comapptech.net",
+//     contact_uri: "3000@fusionpbx.comapptech.net",
+//     authorizationUser: '3000',
+//     registrarServer: "3000@fusionpbx.comapptech.net",
+//     userAgentString: "3000@fusionpbx.comapptech.net",
+//     displayName: "3000",
+//     password: '8*m3Xf.vq!',
+//     register: true,
+//     usePreloadedRoute: true,
+//     hackWssInTransport: true,
+//     stunServers: "stun:stun.l.google.com:19302",
+//
+// };
+
 var session;
 // var ua = new SIP.UA(config);
 phone.init(config);
@@ -52,15 +83,17 @@ setTimeout(() => {
     phone.ua.register(options);
 
     setTimeout(() => {
-        console.log('Registered Success!: ', phone.ua.isRegistered());
+        console.log(phone.ua.isRegistered());
+        // my code
+        btnCall.removeAttribute('disabled');
     }, 1000);
 }, 2000);
 
-// var endButton = document.getElementById('hangupbtn');
-// endButton.addEventListener("click", function () {
-//     session.terminate();
-//     alert("Call Ended");
-// }, false);
+var endButton = document.getElementById('hangupbtn');
+endButton.addEventListener("click", function () {
+    session.terminate();
+    // alert("Call Ended");
+}, false);
 
 phone.ua.on('registrationFailed', e => {
     console.log("My register", e);
@@ -90,21 +123,20 @@ document.getElementById('7').addEventListener("click", function () {
 document.getElementById('8').addEventListener("click", function () {
     session.dtmf(8);
 }, false);
-document.getElementById('8').addEventListener("click", function () {
-    session.dtmf(8);
-}, false);
 document.getElementById('9').addEventListener("click", function () {
     session.dtmf(9);
 }, false);
 document.getElementById('*').addEventListener("click", function () {
     session.dtmf("*");
 }, false);
-document.getElementById('8').addEventListener("click", function () {
+document.getElementById('0').addEventListener("click", function () {
     session.dtmf(0);
 }, false);
-document.getElementById('8').addEventListener("click", function () {
+document.getElementById('#').addEventListener("click", function () {
     session.dtmf("#");
 }, false);
+var trackAdded = 0;
+
 document.getElementById('callbtn').addEventListener("click", function () {
     session = phone.ua.invite('sip:7816651997@173.9.102.87:6588', {
     // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
@@ -112,29 +144,39 @@ document.getElementById('callbtn').addEventListener("click", function () {
             constraints: {
                 audio: true,
                 video: false
-            }
+            },
         }
     });
-    session.accept;
+    let remoteVideo = document.getElementById('remoteVideo');
+    let localVideo = document.getElementById('localVideo');
+
+    session.on('trackAdded', function() {
+        // We need to check the peer connection to determine which track was added
+        var pc = session.sessionDescriptionHandler.peerConnection;
+
+        // Gets remote tracks
+        var remoteStream = new MediaStream();
+        pc.getReceivers().forEach(function(receiver) {
+            remoteStream.addTrack(receiver.track);
+        });
+        remoteVideo.srcObject = remoteStream;
+        remoteVideo.play();
+
+        // Gets local tracks
+        var localStream = new MediaStream();
+        pc.getSenders().forEach(function(sender) {
+            // my code start
+            buttons.forEach(btn =>  btn.removeAttribute('disabled') );
+            btnHangup.removeAttribute('disabled');
+            btnCall.setAttribute('disabled', true);
+            // my code end
+
+            localStream.addTrack(sender.track);
+        });
+        localVideo.srcObject = localStream;
+        localVideo.play();
+    });
 });
 
-// function onConnected() {
-// var options = {
-//     media: {
-//         constraints:{
-//             audio:true,
-//             video:false
-//         },
-//         render: {
-//             remote: {
-//                 audio: document.getElementById('audio_remote')
-//             },
-//
-//             local:  {
-//                 audio: document.getElementById('localAudio')
-//             }
-//         }
-//     }
-// };
 
-// }
+
