@@ -86,6 +86,7 @@ setTimeout(() => {
         console.log(phone.ua.isRegistered());
         // my code
         btnCall.removeAttribute('disabled');
+        waitTitle.style.display = 'none';
     }, 1000);
 }, 2000);
 

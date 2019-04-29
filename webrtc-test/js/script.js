@@ -2,6 +2,7 @@ let btnsNumber = document.querySelector('.btns-number');
 let buttons = btnsNumber.querySelectorAll('.btn');
 let btnHangup = document.querySelector('.btn-hangup');
 let btnCall = document.querySelector('.btn-call');
+let waitTitle = document.querySelector('.wait');
 
 buttons.forEach(btn =>  btn.setAttribute('disabled', true) );
 btnHangup.setAttribute('disabled', true);
