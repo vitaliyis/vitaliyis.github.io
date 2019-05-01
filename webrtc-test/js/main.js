@@ -29,56 +29,68 @@ const constraints = window.constraints = {
 //
 // };
 
-let config = {
-    uri: '1997@173.9.102.87:6588',
-    transportOptions: {
-        wsServers: ['wss://173.9.102.87:8089/ws'],
-        traceSip: true,
-        usePreloadedRoute: true,
-    },
-    realm: "173.9.102.87:6588",
-    contact_uri: "sip:1997@173.9.102.87",
-    authorizationUser: '1997',
-    registrarServer: "sip:1997@173.9.102.87:6588",
-    userAgentString: "sip:1997@173.9.102.87:6588",
-    displayName: "1997",
-    password: '!@#$%~',
-    register: true,
-    usePreloadedRoute: true,
-    hackWssInTransport: true,
-    stunServers: "stun:stun.l.google.com:19302",
-    audioId: "remote-audio"
-
-};
-
 // let config = {
-//     uri: '3000@fusionpbx.comapptech.net',
+//     uri: '1997@173.9.102.87:6588',
 //     transportOptions: {
-//         wsServers: ['wss://fusionpbx.comapptech.net:7443'],
+//         wsServers: ['wss://173.9.102.87:8089/ws'],
 //         traceSip: true,
 //         usePreloadedRoute: true,
 //     },
-//     realm: "fusionpbx.comapptech.net",
-//     contact_uri: "3000@fusionpbx.comapptech.net",
-//     authorizationUser: '3000',
-//     registrarServer: "3000@fusionpbx.comapptech.net",
-//     userAgentString: "3000@fusionpbx.comapptech.net",
-//     displayName: "3000",
-//     password: '8*m3Xf.vq!',
+//     realm: "173.9.102.87:6588",
+//     contact_uri: "sip:1997@173.9.102.87",
+//     authorizationUser: '1997',
+//     registrarServer: "sip:1997@173.9.102.87:6588",
+//     userAgentString: "sip:1997@173.9.102.87:6588",
+//     displayName: "1997",
+//     password: '!@#$%~',
 //     register: true,
 //     usePreloadedRoute: true,
 //     hackWssInTransport: true,
 //     stunServers: "stun:stun.l.google.com:19302",
+//     audioId: "remote-audio"
 //
 // };
 
+
+let sipUser1 = new sipUser("3000", "8*m3Xf.vq!");
+let sipUser2 = new sipUser("3001", "e!P9UqFE!C");
+let sipUser3 = new sipUser("3002", "BA!B.4JGE.");
+let sipUser4 = new sipUser("3003", "y!!yInQX");
+let sipUser5 = new sipUser("3004", "!qDv$1g!VT");
+
+
+let sipUsers = [sipUser1, sipUser2, sipUser3, sipUser4, sipUser5];
+
+
+    var i = 0;
+    let config = {
+        uri: sipUsers[i].name + '@fusionpbx.comapptech.net',
+        transportOptions: {
+            wsServers: ['wss://fusionpbx.comapptech.net:7443'],
+            traceSip: true,
+            usePreloadedRoute: true,
+        },
+        realm: "fusionpbx.comapptech.net",
+        contact_uri: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
+        authorizationUser: sipUsers[i].name,
+        registrarServer: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
+        userAgentString: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
+        displayName: sipUsers[i].name,
+        password: sipUsers[i].secret,
+        register: true,
+        usePreloadedRoute: true,
+        hackWssInTransport: true,
+        stunServers: "stun:stun.l.google.com:19302",
+
+    };
+i++;
 var session;
 // var ua = new SIP.UA(config);
 phone.init(config);
 
 setTimeout(() => {
     var options = {
-        'extraHeaders': ['X-Foo: foo', 'X-Bar: bar', 'Contact: <sip:1997@173.9.102.87;transport=wss>;expires=600']
+        'extraHeaders': ['X-Foo: foo', 'X-Bar: bar', 'Contact: <sip:7816651997@fusionpbx.comapptech.net;transport=wss>;expires=600']
     };
     phone.ua.register(options);
 
@@ -139,7 +151,7 @@ document.getElementById('#').addEventListener("click", function () {
 var trackAdded = 0;
 
 document.getElementById('callbtn').addEventListener("click", function () {
-    session = phone.ua.invite('sip:7816651997@173.9.102.87:6588', {
+    session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
     // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
         sessionDescriptionHandlerOptions: {
             constraints: {
