@@ -51,39 +51,27 @@ const constraints = window.constraints = {
 //
 // };
 
-
-let sipUser1 = new sipUser("3000", "8*m3Xf.vq!");
-let sipUser2 = new sipUser("3001", "e!P9UqFE!C");
-let sipUser3 = new sipUser("3002", "BA!B.4JGE.");
-let sipUser4 = new sipUser("3003", "y!!yInQX");
-let sipUser5 = new sipUser("3004", "!qDv$1g!VT");
-
-
-let sipUsers = [sipUser1, sipUser2, sipUser3, sipUser4, sipUser5];
-
-
-    var i = 0;
-    let config = {
-        uri: sipUsers[i].name + '@fusionpbx.comapptech.net',
-        transportOptions: {
-            wsServers: ['wss://fusionpbx.comapptech.net:7443'],
-            traceSip: true,
-            usePreloadedRoute: true,
-        },
-        realm: "fusionpbx.comapptech.net",
-        contact_uri: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
-        authorizationUser: sipUsers[i].name,
-        registrarServer: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
-        userAgentString: "sip:" + sipUsers[i].name + "@fusionpbx.comapptech.net",
-        displayName: sipUsers[i].name,
-        password: sipUsers[i].secret,
-        register: true,
+let config = {
+    uri: '3004@fusionpbx.comapptech.net',
+    transportOptions: {
+        wsServers: ['wss://fusionpbx.comapptech.net:7443'],
+        traceSip: true,
         usePreloadedRoute: true,
-        hackWssInTransport: true,
-        stunServers: "stun:stun.l.google.com:19302",
+    },
+    realm: "fusionpbx.comapptech.net",
+    contact_uri: "3004@fusionpbx.comapptech.net",
+    authorizationUser: '3004',
+    registrarServer: "3004@fusionpbx.comapptech.net",
+    userAgentString: "3004@fusionpbx.comapptech.net",
+    displayName: "3004",
+    password: '!qDv$1g!VT',
+    register: true,
+    usePreloadedRoute: true,
+    hackWssInTransport: true,
+    stunServers: "stun:stun.l.google.com:19302",
 
-    };
-i++;
+};
+
 var session;
 // var ua = new SIP.UA(config);
 phone.init(config);
@@ -97,8 +85,9 @@ setTimeout(() => {
     setTimeout(() => {
         console.log(phone.ua.isRegistered());
         // my code
-        btnCall.removeAttribute('disabled');
-        waitTitle.style.display = 'none';
+        // btnCall.removeAttribute('disabled');
+        myCall();
+
     }, 1000);
 }, 2000);
 
@@ -150,9 +139,9 @@ document.getElementById('#').addEventListener("click", function () {
 }, false);
 var trackAdded = 0;
 
-document.getElementById('callbtn').addEventListener("click", function () {
+function myCall () {
     session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
-    // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
+        // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
         sessionDescriptionHandlerOptions: {
             constraints: {
                 audio: true,
@@ -182,6 +171,7 @@ document.getElementById('callbtn').addEventListener("click", function () {
             buttons.forEach(btn =>  btn.removeAttribute('disabled') );
             btnHangup.removeAttribute('disabled');
             btnCall.setAttribute('disabled', true);
+            waitTitle.style.display = 'none';
             // my code end
 
             localStream.addTrack(sender.track);
@@ -189,7 +179,10 @@ document.getElementById('callbtn').addEventListener("click", function () {
         localVideo.srcObject = localStream;
         localVideo.play();
     });
-});
+}
+
+var callBtn = document.getElementById('callbtn');
+callBtn.addEventListener("click", myCall);
 
 
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <title>Phone</title>
+    <link rel="shortcut icon" href="images/CAT-Logo-TM-RGB.png">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="container mt-5">
+    <div class="phone-wrap text-center">
+        <!--<div class="d-flex logo justify-content-between align-items-center">-->
+            <!--<div class="logo-img">-->
+                <!--<img src="images/CAT-Logo-TM-RGB.png" alt="">-->
+            <!--</div>-->
+            <!--<h1>Phone</h1>-->
+        <!--</div>-->
+        <h6 class="wait">Server connection please wait ...</h6>
+        <div class="btns-number mt-3">
+            <div>
+                <button type="button" id="1" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">1</span>
+                </button>
+                <button type="button" id="2" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">2</span>
+                    <span class="dial-litter">abc</span>
+                </button>
+                <button type="button" id="3" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">3</span>
+                    <span class="dial-litter">def</span>
+                </button>
+
+            </div>
+            <div class="mt-1">
+                <button type="button" id="4" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">4</span>
+                    <span class="dial-litter">ghi</span>
+                </button>
+                <button type="button" id="5" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">5</span>
+                    <span class="dial-litter">jkl</span>
+                </button>
+                <button type="button" id="6" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">6</span>
+                    <span class="dial-litter">mno</span>
+                </button>
+            </div>
+            <div class="mt-1">
+                <button type="button" id="7" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">7</span>
+                    <span class="dial-litter">pqrs</span>
+                </button>
+                <button type="button" id="8" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">8</span>
+                    <span class="dial-litter">tuv</span>
+                </button>
+                <button type="button" id="9" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">9</span>
+                    <span class="dial-litter">wxyz</span>
+                </button>
+            </div>
+            <div class="mt-1">
+                <button type="button" id="*" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">&#10034</span>
+                </button>
+                <button type="button" id="0" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">0</span>
+                    <span class="dial-litter">+</span>
+                </button>
+                <button type="button" id="#" class="btn btn-lg btn-outline-dark">
+                    <span class="dial-number">#</span>
+                </button>
+            </div>
+        </div>
+        <div class="btns-control mt-3 mb-3">
+            <button type="button" id="callbtn" class="btn btn-lg btn-success btn-call">Call</button>
+            <button type="button" id="hangupbtn" class="btn btn-lg btn-danger btn-hangup">Hang up</button>
+        </div>
+    </div>
+
+
+</div>
+    <video id="remoteVideo"></video>
+    <video id="localVideo" muted="muted"></video>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/phone.js"></script>
+    <script src="js/sip-0.13.8.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

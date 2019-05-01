@@ -1,0 +1,78 @@
+body{
+    background-color: lightgray;
+}
+
+.logo{
+    max-width: 294px;
+}
+
+.logo-img{
+    width: 120px;
+    height: 70px;
+}
+
+.logo-img img{
+    width: 100%;
+}
+
+.btns-number .btn{
+    width: 94px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.btns-number .btn[disabled], .btn-call[disabled], .btn-hangup[disabled]{
+    opacity: .3;
+    transition: opacity .3s ease-in-out;
+}
+
+.btns-number .btn, .btn-call, .btn-hangup{
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+}
+
+.btns-number .btn:hover{
+    background-color: #343a40;
+}
+
+.btns-control .btn{
+    width: 144px;
+}
+
+.dial-number{
+    font-size: 24px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.dial-litter{
+    font-size: 12px;
+}
+
+@media (max-width:767px){
+    .phone-wrap{
+        text-align: center;
+    }
+
+    .logo{
+        margin: auto;
+    }
+}
+
+@media (max-width:400px){
+    .btns-number .btn{
+        width: 86px;
+    }
+
+    .btns-control .btn{
+        width: 130px;
+    }
+
+    .logo{
+        max-width: 260px;
+    }
+
+    .dial-number{
+        margin-left: 0;
+    }
+}
