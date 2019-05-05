@@ -49,6 +49,58 @@ body{
     font-size: 12px;
 }
 
+.form-control-range{
+    width: 286px;
+    display: inline-block;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 286px;
+    position: relative;
+}
+
+input[type=range]:before {
+    content: 'volume';
+    position: absolute;
+    color: #000;
+    top: -22px;
+    font-size: 12px;
+}
+
+input[type=range][disabled] {
+    opacity: .3;
+    transition: opacity .3s ease-in-out;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/* Бегунок в Хроме */
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000;
+    border: 1px solid #000;
+    height: 35px;
+    width: 40px;
+    border-radius: 3px;
+    background: lightgray;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+    content: 'volume';
+}
+
+/* Полоса в Хроме */
+input[type=range]::-webkit-slider-runnable-track {
+    height: 8px;
+    cursor: pointer;
+    animate: 0.2s;
+    border: 1px solid #575656;
+    background: lightgray;
+}
+
+/*Media*/
 @media (max-width:767px){
     .phone-wrap{
         text-align: center;
@@ -74,5 +126,10 @@ body{
 
     .dial-number{
         margin-left: 0;
+    }
+
+    input[type=range] {
+        -webkit-appearance: none;
+        width: 262px;
     }
 }

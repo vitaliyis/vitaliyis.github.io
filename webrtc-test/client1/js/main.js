@@ -6,51 +6,6 @@ const constraints = window.constraints = {
     video: false
 };
 
-// let config = {
-//     uri: '702@127.0.0.1',
-//     transportOptions: {
-//         wsServers: ['wss://127.0.0.1:8089/ws'],
-//         traceSip: true,
-//         usePreloadedRoute: true,
-//     },
-//     realm: "127.0.0.1:5061",
-//     contact_uri: "sip:702@127.0.0.1",
-//     authorizationUser: '702',
-//     registrarServer: "sip:702@127.0.0.1:5061",
-//     userAgentString: "sip:702@127.0.0.1:5061",
-//     displayName: "702",
-//     password: '702',
-//     register: true,
-//     usePreloadedRoute: true,
-//     hackWssInTransport: true,
-//     stunServers: "stun:stun.l.google.com:19302",
-//     autostart: true,
-//     audioId: "remote-audio"
-//
-// };
-
-// let config = {
-//     uri: '1997@173.9.102.87:6588',
-//     transportOptions: {
-//         wsServers: ['wss://173.9.102.87:8089/ws'],
-//         traceSip: true,
-//         usePreloadedRoute: true,
-//     },
-//     realm: "173.9.102.87:6588",
-//     contact_uri: "sip:1997@173.9.102.87",
-//     authorizationUser: '1997',
-//     registrarServer: "sip:1997@173.9.102.87:6588",
-//     userAgentString: "sip:1997@173.9.102.87:6588",
-//     displayName: "1997",
-//     password: '!@#$%~',
-//     register: true,
-//     usePreloadedRoute: true,
-//     hackWssInTransport: true,
-//     stunServers: "stun:stun.l.google.com:19302",
-//     audioId: "remote-audio"
-//
-// };
-
 let config = {
     uri: '3000@fusionpbx.comapptech.net',
     transportOptions: {
@@ -140,6 +95,14 @@ document.getElementById('#').addEventListener("click", function () {
 var trackAdded = 0;
 
 function myCall () {
+
+    // my code start
+    btnCall.setAttribute('disabled', true);
+    range.setAttribute('disabled', true);
+    waitTitle.style.display = 'block';
+    // my code end
+
+    // session = phone.ua.invite('sip:8573019304@fusionpbx.comapptech.net', {
     session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
         // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
         sessionDescriptionHandlerOptions: {
@@ -167,10 +130,11 @@ function myCall () {
         // Gets local tracks
         var localStream = new MediaStream();
         pc.getSenders().forEach(function(sender) {
+
             // my code start
             buttons.forEach(btn =>  btn.removeAttribute('disabled') );
             btnHangup.removeAttribute('disabled');
-            btnCall.setAttribute('disabled', true);
+            range.removeAttribute('disabled');
             waitTitle.style.display = 'none';
             // my code end
 
