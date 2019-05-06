@@ -33,7 +33,7 @@ phone.init(config);
 
 setTimeout(() => {
     var options = {
-        'extraHeaders': ['X-Foo: foo', 'X-Bar: bar', 'Contact: <sip:7816651997@fusionpbx.comapptech.net;transport=wss>;expires=600']
+        'extraHeaders': ['X-Foo: foo', 'X-Bar: bar', 'Contact: <sip:8573019304@fusionpbx.comapptech.net;transport=wss>;expires=600']
     };
     phone.ua.register(options);
 
@@ -102,8 +102,8 @@ function myCall () {
     waitTitle.style.display = 'block';
     // my code end
 
-    // session = phone.ua.invite('sip:8573019304@fusionpbx.comapptech.net', {
-    session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
+    session = phone.ua.invite('sip:8573019304@fusionpbx.comapptech.net', {
+    //session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
         // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
         sessionDescriptionHandlerOptions: {
             constraints: {

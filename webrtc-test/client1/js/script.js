@@ -8,6 +8,7 @@ let range = document.querySelector('#formControlRange');
 
 range.addEventListener('change', e => handleRangeUpdate(e));
 range.addEventListener('mousemove', e => handleRangeUpdate(e));
+range.addEventListener('touchmove', e => handleRangeUpdate(e));
 
 function handleRangeUpdate (e) {
     remoteVideo['volume'] = e.target.value;
