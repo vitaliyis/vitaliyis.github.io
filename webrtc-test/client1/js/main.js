@@ -38,9 +38,8 @@ setTimeout(() => {
     phone.ua.register(options);
 
     setTimeout(() => {
-        console.log(phone.ua.isRegistered());
+        console.log('Registration successful =>', phone.ua.isRegistered());
         // my code
-        // btnCall.removeAttribute('disabled');
         myCall();
 
     }, 1000);
@@ -102,7 +101,8 @@ function myCall () {
     waitTitle.style.display = 'block';
     // my code end
 
-    session = phone.ua.invite('sip:8573019304@fusionpbx.comapptech.net', {
+    session = phone.ua.invite('sip:1999@fusionpbx.comapptech.net', {
+    // session = phone.ua.invite('sip:8573019304@fusionpbx.comapptech.net', {
     //session = phone.ua.invite('sip:7816651997@fusionpbx.comapptech.net', {
         // session = phone.ua.invite('sip:1234@127.0.0.1:5061', {
         sessionDescriptionHandlerOptions: {
