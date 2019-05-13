@@ -7,18 +7,18 @@ const constraints = window.constraints = {
 };
 
 let config = {
-    uri: '3000@fusionpbx.comapptech.net',
+    uri: '0@fusionpbx.comapptech.net',
     transportOptions: {
         wsServers: ['wss://fusionpbx.comapptech.net:7443'],
         traceSip: true,
         usePreloadedRoute: true,
     },
     realm: "fusionpbx.comapptech.net",
-    contact_uri: "3000@fusionpbx.comapptech.net",
-    authorizationUser: '3000',
-    registrarServer: "3000@fusionpbx.comapptech.net",
-    userAgentString: "3000@fusionpbx.comapptech.net",
-    displayName: "3000",
+    contact_uri: "0@fusionpbx.comapptech.net",
+    authorizationUser: '0',
+    registrarServer: "0@fusionpbx.comapptech.net",
+    userAgentString: "0@fusionpbx.comapptech.net",
+    displayName: "0",
     password: '8*m3Xf.vq!',
     register: true,
     usePreloadedRoute: true,
