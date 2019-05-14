@@ -27,12 +27,12 @@ btnHangup.addEventListener('click', () => {
     btnCall.removeAttribute('disabled');
 });
 
-// buttons.forEach(btn =>  btn.addEventListener('touchstart', e =>{
-//     let freqs = e.target.dataset['freq'].split(',');
-//     dialTone(parseInt(freqs[0]), parseInt(freqs[1]));
-// }) );
+buttons.forEach(btn =>  btn.addEventListener('touchstart', e =>{
+    let freqs = e.target.dataset['freq'].split(',');
+    dialTone(parseInt(freqs[0]), parseInt(freqs[1]));
+}) );
 
-// document.addEventListener('touchend', () =>{
-//     stop();
-// })
+document.addEventListener('touchend', () =>{
+    stop();
+})
 
