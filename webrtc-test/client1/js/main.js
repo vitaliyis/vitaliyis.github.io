@@ -24,7 +24,7 @@ let config = {
     usePreloadedRoute: true,
     hackWssInTransport: true,
     stunServers: "stun:stun.l.google.com:19302",
-
+    dtmfType: SIP.C.dtmfType.RTP
 };
 
 var session;
@@ -38,7 +38,7 @@ setTimeout(() => {
     phone.ua.register(options);
 
     setTimeout(() => {
-        console.log('Registration successful =>', phone.ua.isRegistered());
+        console.log(phone.ua.isRegistered());
         // my code
         myCall();
 
@@ -83,13 +83,13 @@ document.getElementById('9').addEventListener("click", function () {
     session.dtmf(9);
 }, false);
 document.getElementById('*').addEventListener("click", function () {
-    session.dtmf("*");
+    session.dtmf(10);
 }, false);
 document.getElementById('0').addEventListener("click", function () {
-    session.dtmf(0);
+    session.dtmf(11);
 }, false);
 document.getElementById('#').addEventListener("click", function () {
-    session.dtmf("#");
+    session.dtmf(12);
 }, false);
 var trackAdded = 0;
 
@@ -114,6 +114,12 @@ function myCall () {
     });
     let remoteVideo = document.getElementById('remoteVideo');
     let localVideo = document.getElementById('localVideo');
+
+    session.on('dtmf', function(request, dtmf)
+    {
+        console.log('request=======>',request);
+        console.log('dtmf=======>',dtmf);
+    })
 
     session.on('trackAdded', function() {
         // We need to check the peer connection to determine which track was added

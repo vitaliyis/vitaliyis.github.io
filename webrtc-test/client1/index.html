@@ -6,7 +6,7 @@
     <title>Phone</title>
     <link rel="shortcut icon" href="images/CAT-Logo-TM-RGB.png">
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -16,59 +16,58 @@
     <div class="phone-wrap text-center">
         <h6 class="wait">Server connection please wait ...</h6>
         <div class="btns-number mt-4">
-            <!--<label for="formControlRange">Volume:</label>-->
             <input type="range" class="form-control-range" id="formControlRange" min="0" max="1" step="0.05" value="0.5">
             <div class="mt-4">
-                <button type="button" id="1" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="1" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(697.0, 1209.0)"  onmouseup="stop()" data-freq='697.0, 1209.0'>
                     <span class="dial-number">1</span>
                 </button>
-                <button type="button" id="2" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="2" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(697.0, 1336.0)" onmouseup="stop()" data-freq='697.0, 1336.0'>
                     <span class="dial-number">2</span>
                     <span class="dial-litter">abc</span>
                 </button>
-                <button type="button" id="3" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="3" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(697.0, 1477.0)" onmouseup="stop()" data-freq='697.0, 1477.0'>
                     <span class="dial-number">3</span>
                     <span class="dial-litter">def</span>
                 </button>
 
             </div>
             <div class="mt-1">
-                <button type="button" id="4" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="4" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(770.0, 1209.0)" onmouseup="stop()" data-freq='770.0, 1209.0'>
                     <span class="dial-number">4</span>
                     <span class="dial-litter">ghi</span>
                 </button>
-                <button type="button" id="5" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="5" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(770.0, 1336.0)" onmouseup="stop()" data-freq='770.0, 1336.0'>
                     <span class="dial-number">5</span>
                     <span class="dial-litter">jkl</span>
                 </button>
-                <button type="button" id="6" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="6" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(770.0, 1477.0)" onmouseup="stop()" data-freq='770.0, 1477.0'>
                     <span class="dial-number">6</span>
                     <span class="dial-litter">mno</span>
                 </button>
             </div>
             <div class="mt-1">
-                <button type="button" id="7" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="7" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(852.0, 1209.0)" onmouseup="stop()" data-freq='852.0, 1209.0'>
                     <span class="dial-number">7</span>
                     <span class="dial-litter">pqrs</span>
                 </button>
-                <button type="button" id="8" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="8" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(852.0, 1336.0)" onmouseup="stop()" data-freq='852.0, 1336.0'>
                     <span class="dial-number">8</span>
                     <span class="dial-litter">tuv</span>
                 </button>
-                <button type="button" id="9" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="9" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(852.0, 1477.0)" onmouseup="stop()" data-freq='852.0, 1477.0'>
                     <span class="dial-number">9</span>
                     <span class="dial-litter">wxyz</span>
                 </button>
             </div>
             <div class="mt-1">
-                <button type="button" id="*" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="*" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(941.0, 1209.0)" onmouseup="stop()" data-freq='941.0, 1209.0'>
                     <span class="dial-number">&#10034</span>
                 </button>
-                <button type="button" id="0" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="0" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(941.0, 1336.0)" onmouseup="stop()" data-freq='941.0, 1336.0'>
                     <span class="dial-number">0</span>
                     <span class="dial-litter">+</span>
                 </button>
-                <button type="button" id="#" class="btn btn-lg btn-outline-dark">
+                <button type="button" id="#" class="btn btn-lg btn-outline-dark" onmousedown="dialTone(941.0, 1477.0)" onmouseup="stop()" data-freq='941.0, 1477.0'>
                     <span class="dial-number">#</span>
                 </button>
             </div>
@@ -89,6 +88,7 @@
     <script src="js/phone.js"></script>
     <script src="js/sip-0.13.8.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/DTMFgenerator.js"></script>
 
 </body>
 </html>

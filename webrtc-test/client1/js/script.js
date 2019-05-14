@@ -26,3 +26,9 @@ btnHangup.addEventListener('click', () => {
     range.setAttribute('disabled', true);
     btnCall.removeAttribute('disabled');
 });
+
+buttons.forEach(btn =>  btn.addEventListener('click', e =>{
+    e.preventDefault();
+    let freqs = e.target.dataset['freq'].split(',');
+    console.log(freqs);
+}) );
