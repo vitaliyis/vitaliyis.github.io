@@ -27,8 +27,13 @@ btnHangup.addEventListener('click', () => {
     btnCall.removeAttribute('disabled');
 });
 
-buttons.forEach(btn =>  btn.addEventListener('click', e =>{
+buttons.forEach(btn =>  btn.addEventListener('touchstart', e =>{
     e.preventDefault();
     let freqs = e.target.dataset['freq'].split(',');
-    console.log(freqs);
+    dialTone(parseInt(freqs[0]), parseInt(freqs[1]));
+}) );
+
+buttons.forEach(btn =>  btn.addEventListener('touchend', e =>{
+    // e.preventDefault();
+    stop();
 }) );
