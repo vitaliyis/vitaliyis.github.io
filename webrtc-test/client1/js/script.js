@@ -33,7 +33,10 @@ buttons.forEach(btn =>  btn.addEventListener('touchstart', e =>{
     dialTone(parseInt(freqs[0]), parseInt(freqs[1]));
 }) );
 
-buttons.forEach(btn =>  btn.addEventListener('touchend', e =>{
-    // e.preventDefault();
+// buttons.forEach(btn =>  btn.addEventListener('touchend', e =>{
+//     stop();
+// }) );
+document.addEventListener('touchend', () =>{
     stop();
-}) );
+})
+
