@@ -28,7 +28,7 @@ btnHangup.addEventListener('click', () => {
 });
 
 buttons.forEach(btn =>  btn.addEventListener('touchstart', e =>{
-    e.preventDefault();
+    // e.preventDefault();
     let freqs = e.target.dataset['freq'].split(',');
     dialTone(parseInt(freqs[0]), parseInt(freqs[1]));
 }) );
